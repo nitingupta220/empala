@@ -22,7 +22,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "host.exp.exponent"
+    },
+    "android": {
+      "package": "com.googleauthsignin.com"
     }
   }
 }

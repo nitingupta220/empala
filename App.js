@@ -1,19 +1,33 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./components/Home";
+import Earnings from "./components/Earnings";
+import { Provider } from "react-redux";
+import reducer from "./store/index";
+import { createStore } from "redux";
+
+const store = createStore(reducer);
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Empala">
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: "Empala" }}
+          />
+          <Stack.Screen
+            name="Earnings"
+            component={Earnings}
+            options={{ title: "Earnings" }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -1,0 +1,1 @@
+export const TRASNFER_MONEY = "TRANSFER_MONEY";
